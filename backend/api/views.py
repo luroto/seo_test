@@ -22,4 +22,7 @@ class UserTaskViewSet(viewsets.ModelViewSet):
     queryset = UserTask.objects.all()
     serializer_class = UserTaskSerializer
 
+class UserandTasksView(generics.ListAPIView):
+    queryset = UserTask.objects.all()
+    serializer_class = UserTaskSerializer
 # Create your views here.

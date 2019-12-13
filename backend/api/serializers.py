@@ -8,7 +8,13 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id','name']
 
 
-class UserTaskSerializer(serializers.ModelSerializer):
+class UserTaskSerializer(serializers.ModelSerializer): 
     class Meta:
         model = UserTask
-        fields = ['id', 'description', 'state', 'user_id']
+        fields = ['id', 'description', 'state']
+
+class UserandTasksSerializer(serializers.ModelSerializer):
+    user_id = UserSerializer(many=False, read_only=True)    
+    class Meta:
+        model = UserTask
+        fields = ['id', 'user_id', 'description', 'state']

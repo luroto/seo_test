@@ -10,4 +10,5 @@ router.register(r'api/users', views.UserViewSet)
 router.register(r'api/usertasks', views.UserTaskViewSet)
 urlpatterns = [
         path('', include(router.urls)),
+        path(r'api/user/<int:pk>/tasks', views.UserandTasksView)
         ]
